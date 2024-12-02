@@ -1,6 +1,6 @@
 package org.test.tugas.other;
 
-public class imamlat5 {
+public class imamlat5 {    
     public static void main(String[] args) {
         System.out.println("Latihan 5 java");
         double alasx = 10;
