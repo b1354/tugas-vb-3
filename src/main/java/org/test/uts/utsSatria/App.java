@@ -1,4 +1,4 @@
-package org.test.utsSatria;
+package org.test.uts.utsSatria;
 
 import javax.swing.JOptionPane;
 

@@ -1,4 +1,4 @@
-package org.test.utsSatria;
+package org.test.uts.utsSatria;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
