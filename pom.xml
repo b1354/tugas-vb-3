@@ -40,6 +40,12 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- Mysql Dependency -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>9.0.0</version> <!-- Use the latest version available -->
+  </dependency>
   </dependencies>
 
   <build>
