@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import org.test.tugas.registrasi.config.Koneksi;
+
 public class Registrasi {
     public Registrasi() {
         Koneksi koneksi = new Koneksi();
