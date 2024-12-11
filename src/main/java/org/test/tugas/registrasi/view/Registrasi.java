@@ -1,15 +1,16 @@
-package org.test.tugas.registrasi;
+package org.test.tugas.registrasi.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import org.test.tugas.registrasi.components.TextInput;
-import org.test.tugas.registrasi.config.Koneksi;
+import org.test.tugas.registrasi.config.Database;
+import org.test.tugas.registrasi.model.Mahasiswa;
+import org.test.tugas.registrasi.view.components.TextInput;
 
 public class Registrasi {
-    Koneksi koneksi = new Koneksi();
+    Database koneksi = new Database();
     JFrame jf = new JFrame("Registrasi");
     JLabel jl_judul = new JLabel("Registrasi");
     TextInput tf_nim = new TextInput("nim");
@@ -48,5 +49,8 @@ public class Registrasi {
         jf.setResizable(false);
         jf.setSize(300, 300);
         jf.setVisible(true);
+
+        Mahasiswa.getMahasiswa(koneksi, "02032211073");
+        Mahasiswa.insertMahasiswa(koneksi, "02032211079", "indah", "PGSD");
     }
 }

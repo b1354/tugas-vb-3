@@ -1,4 +1,4 @@
-package org.test.tugas.registrasi.components;
+package org.test.tugas.registrasi.view.components;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
