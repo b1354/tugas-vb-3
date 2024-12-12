@@ -58,6 +58,7 @@ public class Registrasi implements ActionListener {
         jf.setResizable(false);
         jf.setSize(300, 300);
         jf.setVisible(true);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void clearInput() {
