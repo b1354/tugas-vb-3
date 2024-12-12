@@ -1,11 +1,15 @@
 package org.test.tugas;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class Registrasi {
+public class Registrasi implements ActionListener{
     public Registrasi() {
         JFrame jf = new JFrame();
         jf.setLayout(null);
@@ -23,6 +27,7 @@ public class Registrasi {
 
         JButton btn_cari = new JButton("Cari");
         btn_cari.setBounds(180, 70, 100, 20);
+        btn_cari.addActionListener(this);
         jf.add(btn_cari);
 
         JLabel jl_nama = new JLabel("Nama");
@@ -43,17 +48,25 @@ public class Registrasi {
 
         JButton btn_tambah = new JButton("Tambah");
         btn_tambah.setBounds(20, 160, 70, 20);
+        btn_tambah.addActionListener(this);
         jf.add(btn_tambah);
 
         JButton btn_ubah = new JButton("ubah");
         btn_ubah.setBounds(100, 160, 70, 20);
+        btn_ubah.addActionListener(this);
         jf.add(btn_ubah);
 
         JButton btn_hapus = new JButton("hapus");
         btn_hapus.setBounds(180, 160, 70, 20);
+        btn_hapus.addActionListener(this);
         jf.add(btn_hapus);
 
         jf.setSize(300, 300);
         jf.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JOptionPane.showMessageDialog(null, "Button Cari");
     }
 }
