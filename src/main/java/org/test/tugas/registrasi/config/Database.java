@@ -42,7 +42,7 @@ public class Database {
         }
     }
 
-    public int insertData(PreparedStatement ps) {
+    public int executeUpdateQuery(PreparedStatement ps) {
         try {
             int affectedRows = ps.executeUpdate();
             return affectedRows;

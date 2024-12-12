@@ -44,4 +44,12 @@ public class TextInput {
     public void setWidth(int width) {
         this.tfWidth = width;
     }
+
+    public String getTextField() {
+        return textField.getText();
+    }
+
+    public void setTextField(String value) {
+        textField.setText(value);
+    }
 }
