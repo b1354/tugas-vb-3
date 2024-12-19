@@ -52,4 +52,8 @@ public class TextInput {
     public void setTextField(String value) {
         textField.setText(value);
     }
+
+    public void requestFocus() {
+        textField.requestFocus();
+    }
 }

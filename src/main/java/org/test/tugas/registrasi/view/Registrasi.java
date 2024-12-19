@@ -39,7 +39,7 @@ public class Registrasi implements ActionListener {
         btn_ubah.addActionListener(this);
         btn_hapus.addActionListener(this);
 
-        jl_judul.setBounds(125, 10, 150, 50);
+        jl_judul.setBounds(124, 10, 150, 50);
         tf_nama.add(jf, 20, 100);
         btn_cari.setBounds(180, 70, 90, 20);
         tf_jurusan.add(jf, 20, 130);
@@ -65,6 +65,7 @@ public class Registrasi implements ActionListener {
         tf_nim.setTextField("");
         tf_nama.setTextField("");
         tf_jurusan.setTextField("");
+        tf_nim.requestFocus();
     }
 
     @Override
