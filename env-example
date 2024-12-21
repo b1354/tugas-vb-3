@@ -1,3 +1,4 @@
-DB_URL=jdbc:mysql://localhost/database_name
-DB_USER=root
-DB_PASSWORD=root
+DB_URL="jdbc:mysql://localhost/database_name"
+TEST_DB_URL="mysql://localhost/database_name_test"
+DB_USER="root"
+DB_PASSWORD=""
