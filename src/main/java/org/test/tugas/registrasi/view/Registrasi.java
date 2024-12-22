@@ -91,11 +91,12 @@ public class Registrasi implements ActionListener {
             String NIM = tf_nim.getTextField();
             String Nama = tf_nama.getTextField();
             String Jurusan = tf_jurusan.getTextField();
+            
             if (Mahasiswa.insertMahasiswa(db, NIM, Nama, Jurusan) != 0) {
-                JOptionPane.showMessageDialog(null, "data berhasil di inputkan");
+                JOptionPane.showMessageDialog(null, "Data berhasil ditambahkan");
             } else {
-                JOptionPane.showMessageDialog(null, "terjadi masalah dalam menginput data");
-            };
+                JOptionPane.showMessageDialog(null, "Data tidak dapat diinputkan");
+            }
             clearInput();
         } else if (args.getSource() == btn_ubah) {
             String NIM = tf_nim.getTextField();
