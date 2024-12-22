@@ -31,6 +31,23 @@ public class Database {
         }        
     }
 
+    public Database(String url) {
+        try {
+            Dotenv envVars = Dotenv.load();
+            String user = envVars.get("DB_USER");
+            String pass = envVars.get("DB_PASSWORD");
+
+            this.conn = DriverManager.getConnection(url, user, pass);
+            System.out.println("Koneksi Berhasil");
+            this.connected = true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("Koneksi Gagal");
+            System.out.println(e);
+            this.connected = false;
+        }        
+    }
+
     public ResultSet getData(String query) {
         try {
             Statement stmt = conn.createStatement();
