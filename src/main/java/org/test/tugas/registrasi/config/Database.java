@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import io.github.cdimascio.dotenv.Dotenv;
@@ -57,11 +58,14 @@ public class Database {
         }
     }
 
-    public int executeUpdateQuery(PreparedStatement ps) {
+    public int executeUpdateQuery(PreparedStatement ps) throws Exception{
         try {
             int affectedRows = ps.executeUpdate();
             return affectedRows;
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1062) {
+                throw new Exception("data sudah ada");
+            }
             return 0;
         }
     }

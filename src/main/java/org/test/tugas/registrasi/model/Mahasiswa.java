@@ -46,8 +46,6 @@ public class Mahasiswa {
 
             return db.executeUpdateQuery(ps);
         } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("tidak dapat memasukan data");
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return 0;
         }
@@ -76,8 +74,7 @@ public class Mahasiswa {
         ps.setString(1, NIM);
         return db.executeUpdateQuery(ps);
     } catch (Exception e) {
-        System.out.println(e);
-        System.out.println("tidak dapat menghapus data");
+        
         return 0;
     }
 }
