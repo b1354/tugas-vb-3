@@ -84,6 +84,7 @@ public class Registrasi implements ActionListener {
                     } else {
                         JOptionPane.showMessageDialog(null, "Terjadi kesalahan dalam mengambil data");
                     }
+                    clearInput();
                 }
             }
 
@@ -114,6 +115,7 @@ public class Registrasi implements ActionListener {
                 JOptionPane.showMessageDialog(null, "berhasil menghapus data");
             } else {
                 JOptionPane.showMessageDialog(null, "data tidak ditemukan");
+                clearInput();
             }
             clearInput();
         }
