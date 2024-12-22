@@ -14,7 +14,7 @@ import org.test.tugas.registrasi.model.Mahasiswa;
 import org.test.tugas.registrasi.view.components.TextInput;
 
 public class Registrasi implements ActionListener {
-    Database koneksi = new Database();
+    Database db = new Database();
     JFrame jf = new JFrame("Registrasi");
     JLabel jl_judul = new JLabel("Registrasi");
     TextInput tf_nim = new TextInput("nim");
@@ -26,7 +26,7 @@ public class Registrasi implements ActionListener {
     JButton btn_hapus = new JButton("hapus");
 
     public Registrasi() {
-        if (!koneksi.connected) {
+        if (!db.connected) {
             String errorMessage = "Terjadi Error,\n Tidak dapat terhubung ke database";
             JOptionPane.showMessageDialog(jf, errorMessage, "Error", 0);
             return;
@@ -72,7 +72,7 @@ public class Registrasi implements ActionListener {
     public void actionPerformed(ActionEvent args) {
         if (args.getSource() == btn_cari) {
             String NIM = tf_nim.getTextField();
-            ResultSet hasil = Mahasiswa.getMahasiswa(koneksi, NIM);
+            ResultSet hasil = Mahasiswa.getMahasiswa(db, NIM);
             if (hasil != null) {
                 try {
                     hasil.next();
@@ -91,7 +91,7 @@ public class Registrasi implements ActionListener {
             String NIM = tf_nim.getTextField();
             String Nama = tf_nama.getTextField();
             String Jurusan = tf_jurusan.getTextField();
-            if (Mahasiswa.insertMahasiswa(koneksi, NIM, Nama, Jurusan) != 0) {
+            if (Mahasiswa.insertMahasiswa(db, NIM, Nama, Jurusan) != 0) {
                 JOptionPane.showMessageDialog(null, "data berhasil di inputkan");
             } else {
                 JOptionPane.showMessageDialog(null, "terjadi masalah dalam menginput data");
@@ -101,7 +101,7 @@ public class Registrasi implements ActionListener {
             String NIM = tf_nim.getTextField();
             String Nama = tf_nama.getTextField();
             String Jurusan = tf_jurusan.getTextField();
-            if (Mahasiswa.updateMahasiswa(koneksi, NIM, Nama, Jurusan) != 0) {
+            if (Mahasiswa.updateMahasiswa(db, NIM, Nama, Jurusan) != 0) {
                 JOptionPane.showMessageDialog(null, "berhasil mengubah data");
             } else {
                 JOptionPane.showMessageDialog(null, "gagal mengubah data");
@@ -109,7 +109,7 @@ public class Registrasi implements ActionListener {
             clearInput();
         } else if (args.getSource() == btn_hapus) {
             String NIM = tf_nim.getTextField();
-            if (Mahasiswa.deleteMahasiswa(koneksi, NIM) != 0) {
+            if (Mahasiswa.deleteMahasiswa(db, NIM) != 0) {
                 JOptionPane.showMessageDialog(null, "berhasil menghapus data");
             } else {
                 JOptionPane.showMessageDialog(null, "data tidak ditemukan");

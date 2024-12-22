@@ -64,8 +64,17 @@ public class Database {
             int affectedRows = ps.executeUpdate();
             return affectedRows;
         } catch (Exception e) {
-            // TODO: handle exception
             return 0;
+        }
+    }
+
+    public void connectionClose() {
+        try {
+            this.conn.close();
+            System.out.println("Koneksi Ditutup");
+            this.connected = false;
+        } catch (Exception e) {
+            System.out.println("Tidak dapat menutup koneksi");
         }
     }
 }
