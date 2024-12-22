@@ -51,7 +51,7 @@ public class MahasiswaTest {
 
     @Test
     public void testInsertMahasiswa() throws SQLException {
-        String NIM = "123456";
+        String NIM = "00000000010";
         String nama = "John Doe";
         String jurusan = "Computer Science";
 

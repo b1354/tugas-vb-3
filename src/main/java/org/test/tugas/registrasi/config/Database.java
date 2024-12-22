@@ -21,7 +21,6 @@ public class Database {
             String pass = envVars.get("DB_PASSWORD");
 
             this.conn = DriverManager.getConnection(url, user, pass);
-            System.out.println("Koneksi Berhasil");
             this.connected = true;
         } catch (Exception e) {
             // TODO: handle exception
