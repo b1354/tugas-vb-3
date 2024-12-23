@@ -24,6 +24,7 @@ public class Registrasi implements ActionListener {
     JButton btn_tambah = new JButton("Tambah");
     JButton btn_ubah = new JButton("ubah");
     JButton btn_hapus = new JButton("hapus");
+    JButton btn_clearInput = new JButton ("Clear input");
 
     public Registrasi() {
         if (!db.connected) {
@@ -38,6 +39,7 @@ public class Registrasi implements ActionListener {
         btn_tambah.addActionListener(this);
         btn_ubah.addActionListener(this);
         btn_hapus.addActionListener(this);
+        btn_clearInput.addActionListener(this);
 
         jl_judul.setBounds(124, 10, 150, 50);
         tf_nama.add(jf, 20, 100);
@@ -47,12 +49,14 @@ public class Registrasi implements ActionListener {
         btn_tambah.setBounds(20, 160, 70, 20);
         btn_ubah.setBounds(110, 160, 70, 20);
         btn_hapus.setBounds(200, 160, 70, 20);
+        btn_clearInput.setBounds(20, 190, 250, 20);
 
         jf.add(jl_judul);
         jf.add(btn_cari);
         jf.add(btn_tambah);
         jf.add(btn_ubah);
         jf.add(btn_hapus);
+        jf.add(btn_clearInput);
 
         jf.setLayout(null);
         jf.setResizable(false);
@@ -87,7 +91,6 @@ public class Registrasi implements ActionListener {
                     clearInput();
                 }
             }
-
         } else if (args.getSource() == btn_tambah) {
             String NIM = tf_nim.getTextField();
             String Nama = tf_nama.getTextField();
@@ -117,6 +120,8 @@ public class Registrasi implements ActionListener {
                 JOptionPane.showMessageDialog(null, "data tidak ditemukan");
                 clearInput();
             }
+            clearInput();
+        } else if (args.getSource() == btn_clearInput) {
             clearInput();
         }
     }
