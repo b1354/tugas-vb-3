@@ -33,13 +33,12 @@ public class Mahasiswa {
         }
     }
 
-
     public static int insertMahasiswa(Database db, String NIM, String nama, String jurusan) {
         String query = "INSERT INTO tm_mahasiswa VALUES (?,?,?)";
         try {
             ValidasiMahasiswa.validasi(NIM, nama, jurusan);
             PreparedStatement ps = db.conn.prepareStatement(query);
-            
+
             ps.setString(1, NIM);
             ps.setString(2, nama);
             ps.setString(3, jurusan);
@@ -52,30 +51,30 @@ public class Mahasiswa {
     }
 
     public static int updateMahasiswa(Database db, String NIM, String nama, String jurusan) {
-    String query = "UPDATE tm_mahasiswa SET nama = ?, jurusan = ? WHERE NIM = ?";
-    try {
-        PreparedStatement ps = db.conn.prepareStatement(query);
-        ps.setString(1, nama);
-        ps.setString(2, jurusan);
-        ps.setString(3, NIM);
-        return db.executeUpdateQuery(ps);
-    } catch (Exception e) {
-        System.out.println(e);
-        System.out.println("tidak dapat mengupdate data");
-        JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        return 0;
+        String query = "UPDATE tm_mahasiswa SET nama = ?, jurusan = ? WHERE NIM = ?";
+        try {
+            PreparedStatement ps = db.conn.prepareStatement(query);
+            ps.setString(1, nama);
+            ps.setString(2, jurusan);
+            ps.setString(3, NIM);
+            return db.executeUpdateQuery(ps);
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("tidak dapat mengupdate data");
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return 0;
+        }
     }
-}
 
     public static int deleteMahasiswa(Database db, String NIM) {
-    String query = "DELETE FROM tm_mahasiswa WHERE NIM = ?";
-    try {
-        PreparedStatement ps = db.conn.prepareStatement(query);
-        ps.setString(1, NIM);
-        return db.executeUpdateQuery(ps);
-    } catch (Exception e) {
-        
-        return 0;
+        String query = "DELETE FROM tm_mahasiswa WHERE NIM = ?";
+        try {
+            PreparedStatement ps = db.conn.prepareStatement(query);
+            ps.setString(1, NIM);
+            return db.executeUpdateQuery(ps);
+        } catch (Exception e) {
+
+            return 0;
+        }
     }
-}
 }

@@ -15,7 +15,7 @@ public class TextInput {
         this.labelName = "label";
         this.labelWidth = 100;
         this.labelHeight = 20;
-        this.tfWidth = 200;
+        this.tfWidth = 400;
         this.tfHeight = 20;
         
         this.label = new JLabel(labelName);
@@ -26,7 +26,7 @@ public class TextInput {
         this.labelName = labelName;
         this.labelWidth = 100;
         this.labelHeight = 20;
-        this.tfWidth = 200;
+        this.tfWidth = 400;
         this.tfHeight = 20;
         
         this.label = new JLabel(labelName);
