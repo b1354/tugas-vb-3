@@ -2,6 +2,8 @@ package org.test.tugas.registrasi.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 
 import javax.swing.JButton;
@@ -15,7 +17,7 @@ import org.test.tugas.registrasi.config.Database;
 import org.test.tugas.registrasi.model.Mahasiswa;
 import org.test.tugas.registrasi.view.components.TextInput;
 
-public class Registrasi implements ActionListener {
+public class Registrasi implements ActionListener, MouseListener {
     Database db = new Database();
     JFrame jf = new JFrame("Registrasi");
     JLabel jl_judul = new JLabel("Registrasi");
@@ -116,6 +118,8 @@ public class Registrasi implements ActionListener {
             table = new JTable(tableData, tableHeader);
             sp = new JScrollPane(table);
             
+            table.addMouseListener(this);
+
             sp.setBounds(20, 200, 450, 150);
             jf.add(sp);
         } catch (Exception e) {
@@ -177,5 +181,45 @@ public class Registrasi implements ActionListener {
         } else if (args.getSource() == btn_clearInput) {
             clearInput();
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // TODO Auto-generated method stub
+        int baris = table.rowAtPoint(e.getPoint());
+        int kolom = 0;
+        String nim = table.getValueAt(baris, kolom).toString();
+        String nama = table.getValueAt(baris, kolom+1).toString();
+        String jurusan = table.getValueAt(baris, kolom+2).toString();
+
+        tf_nim.setTextField(nim);
+        tf_nama.setTextField(nama);
+        tf_jurusan.setTextField(jurusan);
+
+        // throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
     }
 }
